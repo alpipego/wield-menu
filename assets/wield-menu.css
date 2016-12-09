@@ -1,0 +1,1 @@
+#menu-to-edit{padding-left:20px}.collapser{vertical-align:middle;position:absolute;left:-20px;line-height:42px}.collapser::before{content:"\f140";font:400 20px/1 dashicons;vertical-align:inherit}.collapser.is-collapsed::before{content:"\f139"}.collapser.is-disabled::before{color:#ebebeb}
