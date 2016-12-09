@@ -1,0 +1,14 @@
+{
+    "name": "alpipego/wield-menu",
+    "description": "WordPress Plugin to wield long and complex navigation menus",
+    "type": "wordpress-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "alpipego",
+            "email": "alpipego@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
