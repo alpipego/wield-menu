@@ -7,3 +7,4 @@ composer.json export-ignore
 package.json export-ignore
 Gruntfile.js export-ignore
 assets/src export-ignore
+yarn.lock export-ignore
