@@ -11,13 +11,12 @@ jQuery(document).ready(function ($) {
             if (newNodes !== null) { // If there are new nodes added
                 var $nodes = $(newNodes); // jQuery set
                 $nodes.each(function () {
-                    var lvl = new menuLevel($(this)).makeCollapseable().changeMenuItem();
+                    new menuLevel($(this)).makeCollapseable().changeMenuItem();
                 });
             }
 
             $('.menu-item').each(function () {
-                var lvl = new menuLevel($(this));
-                lvl.notFollowedBy();
+                new menuLevel($(this)).notFollowedBy();
             });
         });
     });
@@ -79,7 +78,9 @@ var menuLevel = function ($item) {
     };
 
     this.makeCollapseable = function () {
-        this.$item.prepend($('<span>').addClass('collapser'));
+        if (!this.$item.find('.collapser').length) {
+            this.$item.prepend($('<span>').addClass('collapser'));
+        }
         return this;
     };
 
