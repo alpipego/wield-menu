@@ -11,14 +11,14 @@ module.exports = function (grunt) {
 
         uglify: {
             files: {
-                "assets/wield-menu.js": "assets/src/wield-menu.js"
+                "js/wield-menu.js": "assets/src/wield-menu.js"
             }
         },
         cssmin: {
             target: {
                 files:
                     {
-                        "assets/wield-menu.css": "assets/src/wield-menu.css"
+                        "css/wield-menu.css": "assets/src/wield-menu.css"
                     }
             }
         },

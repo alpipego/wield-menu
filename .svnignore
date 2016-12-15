@@ -6,3 +6,4 @@ Gruntfile.js
 .gitignore
 .svnignore
 .gitattributes
+assets/src
