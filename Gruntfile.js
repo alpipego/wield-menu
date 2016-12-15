@@ -14,6 +14,7 @@ module.exports = function (grunt) {
                 "js/wield-menu.js": "assets/src/wield-menu.js"
             }
         },
+
         cssmin: {
             target: {
                 files:
@@ -39,5 +40,6 @@ module.exports = function (grunt) {
         }
     });
 
+    grunt.registerTask('dev', ['cssmin', 'uglify', 'watch']);
     grunt.registerTask('default', ['cssmin', 'uglify']);
 };
