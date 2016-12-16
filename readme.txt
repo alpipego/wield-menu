@@ -17,6 +17,11 @@ For everything else, find me on [twitter](https://twitter.com/alpipego) or on sl
 
 == Screenshots ==
 
+1. Default WordPress navigation menu UI
+2. The same menu after plugin activation
+3. Expanded 1st level
+4. Expanded 2nd level
+
 == Installation ==
 
 1. Upload the plugin to your plugins directory (possibly `/wp-content/plugins/`), or install the plugin through the WordPress plugins screen directly.
