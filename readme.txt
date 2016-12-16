@@ -1,7 +1,7 @@
 === Wield Menu ===
 Contributors: alpipego
 Tags: navigation menu, menus
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: MIT
 Requires at least: 3.0
 Tested up to: 4.7
@@ -16,6 +16,11 @@ For developers: Head over to the [Github repository](https://github.com/alpipego
 For everything else, find me on [twitter](https://twitter.com/alpipego) or on slack
 
 == Screenshots ==
+
+1. Default WordPress navigation menu UI
+2. The same menu after plugin activation
+3. Expanded 1st level
+4. Expanded 2nd level
 
 == Installation ==
 
