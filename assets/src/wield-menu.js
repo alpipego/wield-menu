@@ -40,13 +40,26 @@ jQuery(document).ready(function ($) {
     observer.observe(target, config);
 
     // expand/collapse on handle click
-    $(document).on('click', '.collapser', function () {
-        var lvl = new menuLevel($(this).parent());
-        if (!$(this).hasClass('is-disabled')) {
-            if ($(this).hasClass('is-collapsed')) {
-                $(this).parent().nextUntil('.menu-item-depth-' + lvl.depth(), '.menu-item-depth-' + (lvl.depth() + 1)).show();
+    $(document).on('click', '.collapser', function (e) {
+        var $collapser = $(this),
+            $menuItem = $collapser.parent(),
+            lvl = new menuLevel($menuItem);
+
+        if (!$collapser.hasClass('is-disabled')) {
+            if ($collapser.hasClass('is-collapsed')) {
+                $menuItem.nextUntil('.menu-item-depth-' + lvl.depth(), '.menu-item-depth-' + (lvl.depth() + 1)).show();
+                if (e.altKey) {
+                    var $items = $menuItem.nextUntil('.menu-item-depth-' + lvl.depth());
+                    $items.show();
+                    $.each($items, function () {
+                        var $collapser = $(this).find('.collapser');
+                        if (!$collapser.hasClass('is-disabled')) {
+                            $collapser.removeClass('is-collapsed');
+                        }
+                    });
+                }
             } else {
-                var nextMenuItems = $(this).parent().nextUntil('.menu-item-depth-' + lvl.depth());
+                var nextMenuItems = $menuItem.nextUntil('.menu-item-depth-' + lvl.depth());
                 $.each(nextMenuItems, function (i, el) {
                     var matchingClass = 'menu-item-depth-[0-' + lvl.depth() + ']';
                     if (!$(el).attr('class').match(matchingClass)) {
@@ -55,7 +68,7 @@ jQuery(document).ready(function ($) {
                     }
                 });
             }
-            $(this).toggleClass('is-collapsed');
+            $collapser.toggleClass('is-collapsed');
         }
     });
 
