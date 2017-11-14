@@ -10,24 +10,40 @@ module.exports = function (grunt) {
         pkg: grunt.file.readJSON('package.json'),
 
         uglify: {
-            files: {
-                "js/wield-menu.js": "assets/src/wield-menu.js"
+            default: {
+                options: {
+                    compress: {
+                        drop_console: true
+                    }
+                },
+                files: {
+                    "js/wield-menu.js": "assets/src/wield-menu.js"
+                }
+            },
+            dev: {
+                options: {
+                    mangle: false,
+                    compress: false,
+                    beautify: false,
+                },
+                files: {
+                    "js/wield-menu.js": "assets/src/wield-menu.js"
+                }
             }
         },
 
         cssmin: {
             target: {
-                files:
-                    {
-                        "css/wield-menu.css": "assets/src/wield-menu.css"
-                    }
+                files: {
+                    "css/wield-menu.css": "assets/src/wield-menu.css"
+                }
             }
         },
 
         watch: {
             grunt: {
                 files: ['Gruntfile.js'],
-                tasks: ['cssmin', 'uglify']
+                tasks: ['cssmin', 'uglify:dev']
             },
             sass: {
                 files: 'assets/src/**/*.css',
@@ -35,11 +51,11 @@ module.exports = function (grunt) {
             },
             js: {
                 files: 'assets/src/**/*.js',
-                tasks: ['uglify']
+                tasks: ['uglify:dev']
             }
         }
     });
 
-    grunt.registerTask('dev', ['cssmin', 'uglify', 'watch']);
+    grunt.registerTask('dev', ['cssmin', 'uglify:dev', 'watch']);
     grunt.registerTask('default', ['cssmin', 'uglify']);
 };
