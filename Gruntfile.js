@@ -40,6 +40,14 @@ module.exports = function (grunt) {
             }
         },
 
+        wp_readme_to_markdown: {
+            dist: {
+                files: {
+                    'README.md': 'readme.txt'
+                }
+            }
+        },
+
         watch: {
             grunt: {
                 files: ['Gruntfile.js'],
@@ -57,5 +65,5 @@ module.exports = function (grunt) {
     });
 
     grunt.registerTask('dev', ['cssmin', 'uglify:dev', 'watch']);
-    grunt.registerTask('default', ['cssmin', 'uglify']);
+    grunt.registerTask('default', ['cssmin', 'uglify', 'wp_readme_to_markdown']);
 };
