@@ -1,7 +1,7 @@
 === Wield Menu ===
 Contributors: alpipego
 Tags: navigation menu, menus
-Stable tag: 1.1.2
+Stable tag: 1.2.0
 License: MIT
 Requires at least: 4.5
 Tested up to: 5.2
@@ -32,5 +32,7 @@ For everything else, find me on [twitter](https://twitter.com/alpipego) or slack
 
 == Changelog ==
 
-= 1.1.2 =
-* Ensure compatibility with WP 5.2
+= 1.2.0 =
+* Fix unusable customizer
+* Make usable with customizer
+* Respect `SCRIPT_DEBUG`
