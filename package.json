@@ -5,8 +5,7 @@
   "author": "alpipego <alpipego@gmail.com>",
   "license": "MIT",
   "private": true,
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "grunt": "~1.0.3",
     "grunt-contrib-cssmin": "^3.0.0",
