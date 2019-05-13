@@ -1,7 +1,7 @@
 === Wield Menu ===
 Contributors: alpipego
 Tags: navigation menu, menus
-Stable tag: 1.1.2
+Stable tag: 1.2.0
 License: MIT
 Requires at least: 4.5
 Tested up to: 5.2

@@ -4,7 +4,7 @@
  * Plugin Name: Wield Menu
  * Plugin URI: https://github.com/alpipego/wield-menu.git
  * Description: Makes long and complex menus easier editable
- * Version: 1.1.2
+ * Version: 1.2.0
  * Author: alpipego <alpipego@gmail.com>
  * Author URI: https://alpipego.com/
  * License: MIT
