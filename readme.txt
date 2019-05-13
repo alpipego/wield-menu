@@ -1,10 +1,10 @@
 === Wield Menu ===
 Contributors: alpipego
 Tags: navigation menu, menus
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 License: MIT
 Requires at least: 3.0
-Tested up to: 5.0
+Tested up to: 5.2
 
 Make long and complex Navigation Menus wieldable
 
@@ -32,5 +32,5 @@ For everything else, find me on [twitter](https://twitter.com/alpipego) or slack
 
 == Changelog ==
 
-= 1.1.0 =
-* Option/Alt-click expands all children
+= 1.1.2 =
+* Ensure compatibility with WP 5.2
