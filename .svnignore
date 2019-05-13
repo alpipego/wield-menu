@@ -7,4 +7,4 @@ Gruntfile.js
 .gitignore
 .svnignore
 .gitattributes
-assets/src
+js/wield-menu.dev.js

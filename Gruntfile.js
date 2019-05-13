@@ -17,17 +17,17 @@ module.exports = function (grunt) {
                     }
                 },
                 files: {
-                    "js/wield-menu.js": "assets/src/wield-menu.js"
+                    "js/wield-menu.min.js": "js/wield-menu.dev.js"
                 }
             },
             dev: {
                 options: {
                     mangle: false,
                     compress: false,
-                    beautify: false,
+                    beautify: true
                 },
                 files: {
-                    "js/wield-menu.js": "assets/src/wield-menu.js"
+                    "js/wield-menu.js": "js/wield-menu.dev.js"
                 }
             }
         },
@@ -35,7 +35,7 @@ module.exports = function (grunt) {
         cssmin: {
             target: {
                 files: {
-                    "css/wield-menu.css": "assets/src/wield-menu.css"
+                    "css/wield-menu.min.css": "css/wield-menu.css"
                 }
             }
         },
@@ -54,16 +54,16 @@ module.exports = function (grunt) {
                 tasks: ['cssmin', 'uglify:dev']
             },
             sass: {
-                files: 'assets/src/**/*.css',
+                files: 'css/wield-menu.css',
                 tasks: ['cssmin']
             },
             js: {
-                files: 'assets/src/**/*.js',
+                files: 'js/*.dev.js',
                 tasks: ['uglify:dev']
             }
         }
     });
 
-    grunt.registerTask('dev', ['cssmin', 'uglify:dev', 'watch']);
+    grunt.registerTask('dev', ['cssmin', 'uglify', 'watch']);
     grunt.registerTask('default', ['cssmin', 'uglify', 'wp_readme_to_markdown']);
 };
