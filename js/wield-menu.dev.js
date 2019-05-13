@@ -3,41 +3,59 @@
  */
 jQuery(document).ready(function ($) {
     // cloneRemoveButton();
-    var target = $('#menu-to-edit')[0];
+    var $menu = $('#menu-to-edit'),
+        observer = new MutationObserver(function (mutations) {
+            mutations.forEach(function (mutation) {
+                var newNodes = mutation.addedNodes; // DOM NodeList
+                if (newNodes !== null) { // If there are new nodes added
+                    $(newNodes).each(function () {
+                        new menuLevel($(this)).makeCollapseable().changeMenuItem();
+                    });
+                }
 
-    var observer = new MutationObserver(function (mutations) {
-        mutations.forEach(function (mutation) {
-            var newNodes = mutation.addedNodes; // DOM NodeList
-            if (newNodes !== null) { // If there are new nodes added
-                var $nodes = $(newNodes); // jQuery set
-                $nodes.each(function () {
-                    new menuLevel($(this)).makeCollapseable().changeMenuItem();
+                $('.menu-item').each(function () {
+                    new menuLevel($(this)).notFollowedBy();
                 });
+            });
+        }),
+        // Configuration for the observer
+        config = {
+            childList: true
+        },
+        $customizer = $('.wp-full-overlay-sidebar-content'),
+        initItems = function () {
+            $('.menu-item').each(function () {
+                var $item = $(this);
+                var lvl = new menuLevel($item).makeCollapseable().changeMenuItem();
+                // collapse initially
+                $item.find('.collapser')
+                    .addClass('is-collapsed')
+                    .parent().nextUntil('.menu-item-depth-0, .customize-control-nav_menu').hide();
+
+                lvl.notFollowedBy();
+            });
+        };
+
+
+    if ($customizer.length) {
+        $(document).on('click', $customizer, function () {
+            var $menu = $('#menu-to-edit');
+            if (!$menu.length) {
+                $menu = undefined;
+                return;
             }
 
-            $('.menu-item').each(function () {
-                new menuLevel($(this)).notFollowedBy();
-            });
+            initItems();
+            observer.observe($menu[0], config);
         });
-    });
-    // on page load
-    $('.menu-item').each(function () {
-        var lvl = new menuLevel($(this)).makeCollapseable().changeMenuItem();
-        // collapse initially
-        $(this).find('.collapser')
-            .addClass('is-collapsed')
-            .parent().nextUntil('.menu-item-depth-0').hide();
+    }
 
-        lvl.notFollowedBy();
-    });
-
-    // Configuration of the observer:
-    var config = {
-        childList: true
-    };
-
-    // Pass in the target node, as well as the observer options
-    observer.observe(target, config);
+    if ($menu.length) {
+        // on page load
+        initItems();
+        // Pass in the target node, as well as the observer options
+        observer.observe($menu[0], config);
+    }
 
     // expand/collapse on handle click
     $(document).on('click', '.collapser', function (e) {
@@ -46,6 +64,7 @@ jQuery(document).ready(function ($) {
             lvl = new menuLevel($menuItem);
 
         if (!$collapser.hasClass('is-disabled')) {
+
             if ($collapser.hasClass('is-collapsed')) {
                 $menuItem.nextUntil('.menu-item-depth-' + lvl.depth(), '.menu-item-depth-' + (lvl.depth() + 1)).show();
                 if (e.altKey) {
@@ -68,10 +87,11 @@ jQuery(document).ready(function ($) {
                     }
                 });
             }
+
             $collapser.toggleClass('is-collapsed');
         }
+        return false;
     });
-
 });
 
 var menuLevel = function ($item) {
@@ -125,3 +145,5 @@ var menuLevel = function ($item) {
         return parseInt(depth, 10);
     };
 };
+
+
