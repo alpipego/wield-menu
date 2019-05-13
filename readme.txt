@@ -3,7 +3,7 @@ Contributors: alpipego
 Tags: navigation menu, menus
 Stable tag: 1.1.2
 License: MIT
-Requires at least: 3.0
+Requires at least: 4.5
 Tested up to: 5.2
 
 Make long and complex Navigation Menus wieldable
