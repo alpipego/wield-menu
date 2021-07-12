@@ -5,6 +5,7 @@ composer.json export-ignore
 .gitignore export-ignore
 .gitattributes export-ignore
 package.json export-ignore
+package-lock.json export-ignore
 Gruntfile.js export-ignore
-assets/src export-ignore
-yarn.lock export-ignore
+js/wield-menu.dev.js export-ignore
+.wordpress-org/ export-ignore
