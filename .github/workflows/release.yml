@@ -5,14 +5,16 @@ on:
       - "*"
 jobs:
   tag:
-    name: "build"
+    name: New tag
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
+        with:
+          set-safe-directory: '*'
+
       - name: WordPress Plugin Deploy
-        uses: 10up/actions-wordpress/dotorg-plugin-deploy@master
+        uses: 10up/action-wordpress-plugin-deploy@stable
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
           SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
           SLUG: "wield-menu"
