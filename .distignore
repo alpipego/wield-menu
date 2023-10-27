@@ -1,10 +1,11 @@
 README.md
-VERSION
 composer.json
 package.json
 package-lock.json
 Gruntfile.js
 .gitignore
-.svnignore
+.distignore
 .gitattributes
+.github/
+.wordpress-org/
 js/wield-menu.dev.js
