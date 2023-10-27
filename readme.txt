@@ -4,7 +4,7 @@ Tags: navigation menu, menus
 Stable tag: 1.2.1
 License: MIT
 Requires at least: 4.5
-Tested up to: 5.8
+Tested up to: 6.4
 
 Make long and complex Navigation Menus wieldable
 
